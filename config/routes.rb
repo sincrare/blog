@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  root 'article#index'
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :articles, :only => [:index]
+
+  namespace :admin do
+    resources :articles
+    resources :comments
+    resources :authorities
+    resources :tags
+  end
 end

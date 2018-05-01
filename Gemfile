@@ -21,7 +21,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'simple_form'
+#gem 'simple_form'
 
 group :production do
   gem 'rails_12factor'
