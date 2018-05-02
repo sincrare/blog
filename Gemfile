@@ -14,25 +14,19 @@ gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
-#gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-#gem 'simple_form'
-
-group :production do
-  gem 'rails_12factor'
-end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec'
   gem 'rspec-rails'
   gem 'capybara'
-  #gem 'factory_girl_rails'
+  gem 'factory_bot'
 end
 
 group :development do
