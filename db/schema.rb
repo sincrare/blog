@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20180501154647) do
     t.datetime "entry_at"
     t.string "title"
     t.text "content"
-    t.boolean "is_published"
+    t.boolean "published"
     t.string "catch_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,18 +50,21 @@ ActiveRecord::Schema.define(version: 20180501154647) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "article_id"
+    t.bigint "article_id"
     t.text "comment"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "article_id"
-    t.integer "user_id"
+    t.bigint "article_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_likes_on_article_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|

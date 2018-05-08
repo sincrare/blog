@@ -6,6 +6,6 @@ class User < ApplicationRecord
          :confirmable
 
   belongs_to :authority
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end
