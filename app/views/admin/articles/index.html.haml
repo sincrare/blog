@@ -3,6 +3,10 @@
 %table
   %thead
     %tr
+      %th 日時
+      %th タイトル
+      %th 本文
+      %th 公開有無
       %th
       %th
       %th
@@ -10,6 +14,10 @@
   %tbody
     - @articles.each do |article|
       %tr
+        %td= datetime_format(article.entry_at)
+        %td= article.title
+        %td= simple_format(article.content.truncate(20))
+        %td= article.published ? "公開中" : "非公開"
         %td= link_to 'Show', admin_article_path(article)
         %td= link_to 'Edit', edit_admin_article_path(article)
         %td= link_to 'Destroy', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' }

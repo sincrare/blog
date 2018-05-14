@@ -5,7 +5,7 @@
         %header
           %div.article-entry-at
             %i.fa.fa-calendar-o
-            %time=article.entry_at.strftime("%Y/%m/%d %H:%M")
+            %time=datetime_format(article.entry_at)
           %h1= article.title
         %section= simple_format article.content
 
