@@ -1,4 +1,4 @@
-class Admin::AuthoritiesController < ApplicationController
+class Admin::AuthoritiesController < Admin::ApplicationController
   before_action :set_authority, only: [:show, :edit, :update, :destroy]
 
   # GET /authorities

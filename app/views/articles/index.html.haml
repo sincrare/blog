@@ -3,10 +3,11 @@
     - @articles.each do |article|
       %article
         %header
-          %time
-            %i.fa.fa-calendar-o= article.entry_at
-            %h1= article.title
-        %section= article.content
+          %div.article-entry-at
+            %i.fa.fa-calendar-o
+            %time=article.entry_at.strftime("%Y/%m/%d %H:%M")
+          %h1= article.title
+        %section= simple_format article.content
 
   .col-md-3
     %aside
