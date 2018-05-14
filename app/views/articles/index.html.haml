@@ -1,18 +1,18 @@
-%h1 Listing articles
-
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
+.row
+  .col-md-9
     - @articles.each do |article|
-      %tr
-        %td= article.entry_at
-        %td= article.title
-        %td= article.context
+      %article
+        %header
+          %div.article-entry-at
+            %i.fa.fa-calendar-o
+            %time=datetime_format(article.entry_at)
+          %h1= article.title
+        %section= simple_format article.content
 
-%br
-
+  .col-md-3
+    %aside
+      %section
+        %h1 プロフィール
+        %strong HN：しんくれあ
+        %p 受託開発メインのIT企業に勤務するC#er。趣味は木工と読書です。
+        %p これまでプライベートな日記がメインのブログでしたが、技術的な記事も書いていきたいと思います。

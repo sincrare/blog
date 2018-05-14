@@ -1,5 +1,20 @@
 %p#notice= notice
 
+%p
+  %b 日時:
+  = datetime_format(@article.entry_at)
+%p
+  %b タイトル:
+  = @article.title
+%p
+  %b 本文:
+  = simple_format(@article.content)
+%p
+  %b 公開:
+  = @article.published ? "公開中" : "非公開"
+%p
+  %b キャッチイメージ:
+  = @article.catch_image
 
 = link_to 'Edit', edit_admin_article_path(@article)
 \|
