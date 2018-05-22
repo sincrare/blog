@@ -4,17 +4,18 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title しんくれあ記
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
 
     %header
       %nav.navbar.navbar-default
         .navbar-header
-          %a.navbar-brand{href: articles_path} しんくれあ記
-          %div.subtitle しんくれあの綴る日々の記録
+          = link_to articles_path do
+            %a.navbar-brand しんくれあ記
+          .subtitle しんくれあの綴る日々の記録
 
-    %main(role='main' class='container-fluid')
+    .main.container-fluid
       = yield
 
     %footer

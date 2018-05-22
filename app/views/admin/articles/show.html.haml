@@ -2,7 +2,7 @@
 
 %p
   %b 日時:
-  = datetime_format(@article.entry_at)
+  = I18n.l(@article.entry_at)
 %p
   %b タイトル:
   = @article.title

@@ -6,5 +6,5 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  default_scope -> { order(entry_at: :desc) }
+  scope :order_by_descending, -> { order(entry_at: :desc) }
 end
