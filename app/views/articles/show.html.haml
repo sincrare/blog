@@ -1,0 +1,12 @@
+.row
+  .col-md-9
+    .article
+      .header
+        .article-entry-at
+          = fa_icon('calendar-o')
+          %time= I18n.l(@article.entry_at)
+        %h2= @article.title
+      .section= simple_format @article.content
+
+  .col-md-3
+    = render 'sidebar'

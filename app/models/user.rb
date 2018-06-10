@@ -1,11 +1,14 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable
+         :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :authority
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  before_create do
+    # 確認のため、全て管理者権限
+    self.admin = true
+  end
 end

@@ -6,3 +6,13 @@
   = f.input :catch_image
   = f.button :submit, class: 'btn btn-primary'
 
+  .row.upload-images
+    = f.simple_fields_for :article_images do |img|
+      .col-sm-2
+        .thumbnail
+          - if img.object.image?
+            .tag-sample= "挿入タグ：<img src='" + img.object.image.url + "' >"
+          .uploaded-image= image_tag img.object.image
+          = img.file_field :image
+
+

@@ -4,17 +4,38 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title しんくれあ記
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
 
     %header
       %nav.navbar.navbar-default
         .navbar-header
-          %a.navbar-brand{href: articles_path} しんくれあ記
-          %div.subtitle しんくれあの綴る日々の記録
+          = link_to "しんくれあ記", articles_path, class: 'navbar-brand'
+          .subtitle しんくれあの綴る日々の記録
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li
+                %p.navbar-text
+                  ログインユーザー：
+                  %strong= current_user.email
+              - if current_user.admin?
+                %li
+                  = link_to '管理者画面', admin_articles_path
+              %li
+                = link_to 'ログアウト', destroy_user_session_path, method: :delete
+            - else
+              %li
+                = link_to '新規登録', new_user_registration_path
+              %li
+                = link_to 'ログイン', new_user_session_path
 
-    %main(role='main' class='container-fluid')
+    .main.container-fluid
+      - if notice
+        %p.notice= notice
+      - if alert
+        %p.alert= alert
       = yield
 
     %footer
