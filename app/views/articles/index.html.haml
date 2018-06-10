@@ -7,12 +7,8 @@
             = fa_icon('calendar-o')
             %time= I18n.l(article.entry_at)
           %h2= article.title
-        .section= simple_format article.content
+        .section= simple_format article.content.truncate(100, omission: '...')
+        .detail= link_to '続きを読む', article_path(article)
 
   .col-md-3
-    .sidebar
-      .section
-        %h3 プロフィール
-        %strong HN：しんくれあ
-        %p 受託開発メインのIT企業に勤務するC#er。趣味は木工と読書です。
-        %p これまでプライベートな日記がメインのブログでしたが、技術的な記事も書いていきたいと思います。
+    = render 'sidebar'
