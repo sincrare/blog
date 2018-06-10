@@ -5,6 +5,8 @@ class Article < ApplicationRecord
   has_many :tags, through: :article_tags
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :article_images
+  accepts_nested_attributes_for :article_images
 
-  default_scope -> { order(entry_at: :desc) }
+  scope :order_by_descending, -> { order(entry_at: :desc) }
 end
