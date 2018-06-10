@@ -10,9 +10,11 @@ class Admin::ArticlesController < Admin::ApplicationController
 
   def new
     @article = Article.new
+    5.times{ @article.article_images.build }
   end
 
   def edit
+    (5 - @article.article_images.count).times{ @article.article_images.build }
   end
 
   def create
@@ -44,6 +46,6 @@ class Admin::ArticlesController < Admin::ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:entry_at, :title, :content, :published, :catch_image)
+      params.require(:article).permit(:entry_at, :title, :content, :published, :catch_image, { article_images_attributes: [:id, :image] })
     end
 end
