@@ -1,7 +1,7 @@
 class CreateArticleImages < ActiveRecord::Migration[5.1]
   def change
     create_table :article_images do |t|
-      t.integer :article_id
+      t.bigint :article_id,  index: true, foreign_key: true
       t.string :image
 
       t.timestamps

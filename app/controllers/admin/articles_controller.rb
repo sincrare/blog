@@ -10,11 +10,11 @@ class Admin::ArticlesController < Admin::ApplicationController
 
   def new
     @article = Article.new
-    5.times{ @article.article_images.build }
+    @article.article_images_build
   end
 
   def edit
-    (5 - @article.article_images.count).times{ @article.article_images.build }
+    @article.article_images_build
   end
 
   def create
