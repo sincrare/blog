@@ -17,3 +17,14 @@
 /yarn-error.log
 
 .byebug_history
+
+# Ignore other unneeded files.
+*.swp
+*~
+.project
+.DS_Store
+.idea
+.secret
+/vendor/bundle/*
+/public/uploads/*
+/coverage/*

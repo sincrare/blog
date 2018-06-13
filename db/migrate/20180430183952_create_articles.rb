@@ -4,7 +4,7 @@ class CreateArticles < ActiveRecord::Migration[5.1]
       t.datetime :entry_at
       t.string :title
       t.text :content
-      t.boolean :is_published
+      t.boolean :published, default: true, null: false
       t.string :catch_image
 
       t.timestamps
